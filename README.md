@@ -7,5 +7,5 @@ Enjoy seeing really stupid commits from some silly friends and no live websites 
 ### SON YOUR SPRAYING
 Stop spraying son
 
-#SOUCH A SOUGIN' SOOGMAS
+SOUCH A SOUGIN' SOOGMAS
 😱
