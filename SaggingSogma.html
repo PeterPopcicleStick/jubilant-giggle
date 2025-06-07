@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Selector</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #d71818;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        overflow: hidden;
+      }
+      h1 {
+        margin-bottom: 20px;
+      }
+      button {
+        padding: 15px 30px;
+        margin: 10px;
+        font-size: 18px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      #gameContainer {
+        display: none;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      #backButton {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        padding: 8px 16px;
+        background-color: #FF4136;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        display: none;
+      }
+      #backButton:hover {
+        background-color: #C12C24;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Select a Game</h1>
+    <button onclick="loadGame('https://deltamath111373269.netlify.app/games/retrobowl/')">Play Retro Bowl</button>
+    <button onclick="loadGame('https://deltamath111373269.netlify.app/games/amazingropepolice/')">Play Amazing Rope Police</button>
+    <button onclick="loadGame('https://deltamath111373269.netlify.app/games/subwaysurfers/')">Play Subway Surfers</button>
+    <button onclick="loadGame('https://deltamath111373269.netlify.app/games/slope/')">Play Slope</button>
+    <button onclick="loadGame('https://wave-ancient-glitter.glitch.me/events')">Play Events</button>
+    <button onclick="loadGame('https://deltamath111373269.netlify.app/games/yohoho/')">Play YoHoHo</button>
+    <button onclick="loadGame('https://deltamath111373269.netlify.app/games/golddiggerfrvr/')">Play Gold Digger FRVR</button>
+
+    <div id="gameContainer">
+      <iframe id="gameFrame"></iframe>
+    </div>
+    <button id="backButton" onclick="goBack()">Menu</button>
+
+    <script>
+      function loadGame(gameUrl) {
+        // Load the selected game into the iframe
+        const iframe = document.getElementById('gameFrame');
+        iframe.src = gameUrl;
+
+        // Show the game container and hide the main menu
+        document.getElementById('gameContainer').style.display = 'block';
+        document.querySelector('h1').style.display = 'none';
+        document.querySelectorAll('button:not(#backButton)').forEach(button => button.style.display = 'none');
+        document.getElementById('backButton').style.display = 'block';
+      }
+
+      function goBack() {
+        // Reset the game container and show the main menu again
+        document.getElementById('gameContainer').style.display = 'none';
+        document.getElementById('gameFrame').src = '';  // Clear iframe source
+        document.querySelector('h1').style.display = 'block';
+        document.querySelectorAll('button:not(#backButton)').forEach(button => button.style.display = 'block');
+        document.getElementById('backButton').style.display = 'none';
+      }
+    </script>
+  </body>
+</html>
